@@ -1,3 +1,12 @@
+CREATE
+DATABASE IF NOT EXISTS `reading_club`
+DEFAULT CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+USE
+`reading_club`;
+
+
 CREATE TABLE `books`
 (
     `id`         INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '自增主键',
