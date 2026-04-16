@@ -1,0 +1,37 @@
+server:
+  port: 9080 # 后端服务端口
+
+spring:
+  application:
+    name: reading-club-backend
+
+  # 数据库连接配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 记得修改这里的 localhost:3306 和数据库名 reading_club
+    url: jdbc:mysql://192.168.153.128:3306/reading_club?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: admin     # 你的数据库用户名
+    password: ubuntu@123 # 你的数据库密码
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+
+mybatis-plus:
+  # 1. 扫描实体类包，XML中 resultType 就可以直接写 "Book" 而不用写全路径
+  type-aliases-package: com.apple.book.entity
+
+  # 2. 映射 XML 文件的路径
+  mapper-locations: classpath:mapper/**/*.xml
+
+  # 3. 原生原生 MyBatis 相关的配置
+  configuration:
+    # 开启驼峰命名转换：数据库 read_time -> Java readTime
+    map-underscore-to-camel-case: true
+    # 打印 SQL 语句到控制台
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+  # 4. MyBatis-Plus 全局策略配置
+  global-config:
+    db-config:
+      # 主键策略：自增
+      id-type: auto
