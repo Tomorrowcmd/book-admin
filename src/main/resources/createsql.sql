@@ -58,3 +58,7 @@ VALUES ('《白夜行》：极致守护背后的沉重真相',
           "桐原亮司与唐泽雪穗...",
           "东野圭吾用极其克制..."
         ]');
+
+INSERT INTO `monthly_stats`
+(`stat_month`, `books_count`, `hours_count`, `reviews_count`)
+VALUES ('2026-04', 1, 8, 1);
